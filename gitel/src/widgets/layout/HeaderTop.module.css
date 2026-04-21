@@ -1,0 +1,36 @@
+.headerTop {
+  width: 100%;
+  background: var(--bg-surface, #fff);
+  color: var(--text-primary, #222);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid var(--border-subtle, #e5e5e5);
+  font-size: 0.95rem;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.quickLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.quickLink {
+  color: var(--text-primary, #222);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.quickLink:hover {
+  color: var(--primary, #0a7cff);
+}

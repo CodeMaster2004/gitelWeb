@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model contacts {
+  contact_id Int       @id @default(autoincrement())
+  name       String    @db.VarChar(255)
+  phone      String    @db.VarChar(255)
+  email      String    @db.VarChar(255)
+  message    String
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model plans {
+  plan_id     Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  speed       String    @db.VarChar(50)
+  price       Decimal   @db.Decimal(10, 2)
+  description String?   @db.VarChar(255)
+  activo      Boolean?  @default(true)
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model promotions {
+  promotion_id Int       @id @default(autoincrement())
+  title        String    @db.VarChar(255)
+  description  String?   @db.VarChar(255)
+  image        String?   @db.VarChar(255)
+  start_date   DateTime  @db.Date
+  end_date     DateTime  @db.Date
+  activo       Boolean?  @default(true)
+  created_at   DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model usuarios {
+  user_id    Int       @id @default(autoincrement())
+  email      String    @unique @db.VarChar(255)
+  password   String    @db.VarChar(255)
+  rol        String?   @default("ADMIN") @db.VarChar(50)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+}
